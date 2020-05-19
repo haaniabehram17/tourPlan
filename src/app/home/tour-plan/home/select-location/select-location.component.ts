@@ -132,7 +132,7 @@ export class SelectLocationComponent implements OnInit {
           this.locationService.setSelectedLocations(result[i].Adresse);
           this.geoLocationsService.geocodeAddress(result[i].Adresse)
             .subscribe(res => {
-              this.locationService.setmapSearchedLocations({lat: res.lat, lng: res.lng});
+              this.locationService.setmapSearchedLocations({lat: res?.lat, lng: res?.lng});
               console.log('before', res);
             });
         }

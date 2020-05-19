@@ -96,7 +96,7 @@ export class MapComponent implements OnInit, OnDestroy {
           console.log('response in map', res);
           this.waypoints.push({location: res});
           console.log('wayyypoints', this.waypoints);
-          this.tabchangeCalled();
+          // this.tabchangeCalled();
            }
       });
     // on tab change click event
@@ -212,14 +212,14 @@ export class MapComponent implements OnInit, OnDestroy {
   //       }
   //     );
   // }
-  csvAddressConveter(loc){
-    this.loading = true;
-    this.geocodeService.geocodeAddress(loc)
-      .subscribe(res => {
-          console.log('csvaddresscompoenent', res);
-        }
-      );
-  }
+  // csvAddressConveter(loc){
+  //   this.loading = true;
+  //   this.geocodeService.geocodeAddress(loc)
+  //     .subscribe(res => {
+  //         console.log('csvaddresscompoenent', res);
+  //       }
+  //     );
+  // }
   ngOnDestroy() {
     if (this.selectedLocations !== undefined){
       this.selectedLocations.unsubscribe();
