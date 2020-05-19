@@ -39,7 +39,7 @@
                  nz-input />
       </nz-input-group>
       <ng-template #suffixIconButton>
-        <button nz-button nzType="primary"><i nz-icon nzType="plus" nzTheme="outline"></i></button>
+        <button nz-button (click)="addLocation()" nzType="primary"><i nz-icon nzType="plus" nzTheme="outline"></i></button>
       </ng-template>
     </div>
   </div>
@@ -103,7 +103,7 @@
 <!--  </nz-list>-->
   <nz-list nzBordered>
     <nz-list-item *ngFor="let item of locationList">
-      <label nz-checkbox (nzCheckedChange)="addClick(item, $event)">
+      <label nz-checkbox [(ngModel)]="item.isChecked" (nzCheckedChange)="addClick(item, $event)">
       <mark><nz-avatar nzShape="square" nzSize="small" nzIcon="user"></nz-avatar></mark>
       {{ item.location }}
       </label>
