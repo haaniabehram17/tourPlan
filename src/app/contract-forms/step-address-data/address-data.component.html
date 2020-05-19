@@ -1,0 +1,181 @@
+<nz-row nzGutter="24" ngModelGroup="rechnungForm">
+  <nz-col nzSpan="12" nzOffset="6">
+    <nz-alert nzType="info" nzMessage="Bitte prüfen Sie Ihre Anschriften und den Empfänger für den Rechnungsversand!"
+      nzShowIcon nzCloseable></nz-alert>
+
+    <div ngModelGroup="rechnungForm">
+
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Rechnungsanschrift">
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="12">
+            <nz-form-label nzFor="firma1">Firma</nz-form-label>
+            <input nz-input [(ngModel)]="currentState.RechnungFormComponent.rechnungsfirma" name="firma"
+              placeholder="Firma" nzSize="default" />
+          </nz-col>
+
+          <nz-col nzSpan="12">
+            <nz-form-label nzfor="ab1">Abteilung</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.department" id="ab1"
+              name="department" placeholder="Department" nzSize="default" />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="4">
+            <nz-form-label nzFor="nr1">Anrede</nz-form-label>
+            <nz-select nzSize="default" id="nr1" [(ngModel)]="currentState.RechnungFormComponent.rechnungAnrede"
+              name="anrede" nzPlaceHolder="Anrede" nzSize="default">
+              <nz-option nzValue="Herr" nzLabel="Herr" nzSize="default"></nz-option>
+              <nz-option nzValue="Frau" nzLabel="Frau" nzSize="default"></nz-option>
+            </nz-select>
+          </nz-col>
+
+          <nz-col nzSpan="10">
+            <nz-form-label nzfor="vo1">Vorname</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.rechnungVorname" id="vo1"
+              name="vorname" placeholder="Vorname" nzSize="default" />
+          </nz-col>
+
+          <nz-col nzSpan="10">
+            <nz-form-label nzfor="nachname1">Nachname</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.rechnungNachname"
+              name="nachname" id="nachname1" placeholder="Nachname" nzSize="default" />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="12">
+            <nz-form-label nzFor="add1">Anschrift</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.rechnungStrasse" id="add1"
+              name="Address" placeholder="Strasse, Hausnummer" nzSize="default" />
+          </nz-col>
+          <nz-col nzSpan="12">
+            <nz-form-label nzfor="add2">Zusatz</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.weitereAdresszeile"
+              id="add2" name="weitereAdresszeile" placeholder="Stockwerk etc." nzSize="default" />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="6">
+            <nz-form-label nzFor="pl1">Postleitzahl</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.rechnungPlz"
+              name="rechnungWeitereAdresszeile" id="pl1" placeholder="Postleitzahl" nzSize="default" />
+          </nz-col>
+          <nz-col nzSpan="9">
+            <nz-form-label nzfor="or1">Ort</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.ort" name="ort" id="or1"
+              placeholder="Ort" nzSize="default" />
+          </nz-col>
+          <nz-col nzSpan="9">
+            <nz-form-label nzfor="lan1">Land</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.RechnungFormComponent.land" name="land" id="lan1"
+              placeholder="Land" nzSize="default" />
+          </nz-col>
+        </nz-row>
+      </nz-card>
+    </div>
+
+    <div ngModelGroup="lieferadresseForm">
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Lieferanschrift">
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="12">
+            <nz-form-label nzFor="fir1">Firma</nz-form-label>
+            <input nz-input id="fir1" nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.firmenname"
+              name="firmenname" placeholder="Firmenname" />
+          </nz-col>
+
+          <nz-col nzSpan="6">
+            <nz-form-label nzfor="vor1">Vorname</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.vorname" name="vorname"
+              id="vor1" placeholder="Vorname" />
+          </nz-col>
+
+          <nz-col nzSpan="6">
+            <nz-form-label nzfor="nachname1">Nachname</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.nachname" name="nachname"
+              id="nachname1" placeholder="Nachname" />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="12">
+            <nz-form-label nzfor="add1">Anschrift</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.address" name="address"
+              id="add1" placeholder="Strasse, Hausnummer" />
+          </nz-col>
+
+          <nz-col nzSpan="12">
+            <nz-form-label nzFor="appar1">Zusatz</nz-form-label>
+            <input nz-input nzSize="default" id="appar1" [(ngModel)]="currentState.LieferadresseComponent.appartment"
+              name="appartment" placeholder="Stockwerk etc." />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="6">
+            <nz-form-label nzFor="appar1">Postleitzahl</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.plz" name="plz"
+              placeholder="Post" />
+          </nz-col>
+
+          <nz-col nzSpan="9">
+            <nz-form-label nzFor="appar1">Ort</nz-form-label>
+            <input nz-input nzSize="default" [(ngModel)]="currentState.LieferadresseComponent.ort" name="ort"
+              placeholder="Place" />
+          </nz-col>
+
+          <nz-col nzSpan="9">
+            <nz-form-label nzFor="land1">Land</nz-form-label>
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" nzSize="default" id="land1"
+              [(ngModel)]="currentState.LieferadresseComponent.land" name="land" nzPlaceHolder="Select a Country">
+              <nz-option *ngFor="let country of countries" nzLabel="{{country.name}}" nzValue="{{country.name}}">
+              </nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+      </nz-card>
+    </div>
+
+    <div ngModelGroup="rechnungsversandForm">
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Rechnungsversand">
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="4">
+            <nz-form-label nzFor="an1">Anrede</nz-form-label>
+            <nz-select id="an1" [(ngModel)]="currentState.RechnungsversandFormComponent.anredeRechnung"
+              name="anredeRechnung" nzPlaceHolder="Salutation" nzSize="default">
+              <nz-option nzValue="Herr" nzLabel="Herr" nzSize="default"></nz-option>
+              <nz-option nzValue="Frau" nzLabel="Frau" nzSize="default"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="10">
+            <nz-form-label nzFor="vor1">Vorname</nz-form-label>
+            <input nz-input [(ngModel)]="currentState.RechnungsversandFormComponent.vornameRechnung"
+              name="vornameRechnung" id="vor1" placeholder="Rechnungsempfänger Vorname" nzSize="default" />
+          </nz-col>
+          <nz-col nzSpan="10">
+            <nz-form-label nzfor="nac1">Nachname</nz-form-label>
+            <input nz-input [(ngModel)]="currentState.RechnungsversandFormComponent.nachnameRechnung"
+              name="nachnameRechnung" id="nac1" placeholder="Rechnungsempfänger Nachname" nzSize="default" />
+          </nz-col>
+        </nz-row>
+
+        <nz-row nzGutter="24">
+          <nz-col nzSpan="8">
+            <nz-form-label nzfor="rechnungsversand1">Versandart</nz-form-label>
+            <nz-select id="rechnungsversand1" [(ngModel)]="currentState.RechnungsversandFormComponent.rechnungsversand"
+              name="rechnungsversand" nzPlaceHolder="" nzSize="default">
+              <nz-option nzValue="Email" nzLabel="Email" nzSize="default"></nz-option>
+              <nz-option nzValue="Post" nzLabel="Post(+1,50 EUR)" nzSize="default"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="16">
+            <nz-form-label nzfor="em1">Email</nz-form-label>
+            <input nz-input [(ngModel)]="currentState.RechnungsversandFormComponent.eMailRechnung" name="eMailRechnung"
+              id="em1" placeholder="Rechnungsempfänger Email" nzSize="default" />
+          </nz-col>
+        </nz-row>
+      </nz-card>
+    </div>
+  </nz-col>
+</nz-row>

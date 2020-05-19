@@ -1,0 +1,33 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    # default labels
+    app.kubernetes.io/name: {{ .Values.app.name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/version: {{ .Chart.Version }}-{{ .Release.Revision }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.app.ingressClass }}
+    {{- if .Values.app.https.enabled }}
+    kubernetes.io/tls-acme: "true"
+    acme.cert-manager.io/http01-ingress-class: {{ .Values.app.ingressClass }}
+    {{- end }}
+spec:
+{{- if .Values.app.https.enabled }}
+  tls:
+    - hosts:
+      - {{ .Values.app.hostname }}
+      secretName: {{ .Values.app.name }}-certificate
+{{- end }}
+  rules:
+    - host: {{ .Values.app.hostname }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Values.app.name }}
+              servicePort: {{ .Values.service.port }}

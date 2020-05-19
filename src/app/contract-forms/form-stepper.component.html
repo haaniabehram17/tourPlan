@@ -1,0 +1,73 @@
+<div class="stepper_div">
+  <nz-row nzGutter="24">
+    <nz-col nzSpan="4">
+      <img src="../../../assets/images/logo-text.png" alt="logo">
+    </nz-col>
+    <nz-col nzSpan="20">
+      <div nz-row class="nz-stepsstyle">
+        <nz-steps [nzCurrent]="current" (nzIndexChange)="onIndexChange($event)">
+          <nz-step nzTitle=""></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable1'></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable2'></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable3'></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable4'></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable5'></nz-step>
+          <nz-step nzTitle="" [nzDisabled]='disable6'></nz-step>
+        </nz-steps>
+      </div>
+    </nz-col>
+  </nz-row>
+  <nz-divider></nz-divider>
+  <div class="steps-content" [ngSwitch]="current">
+    <div nz-row>
+      <div nz-col nzType="flex">
+        <form nz-form #f="ngForm" (ngSubmit)="submitForm(f.value)">
+          <div *ngSwitchCase="0">
+            <app-contract-form-step0></app-contract-form-step0>
+          </div>
+          <div *ngSwitchCase="1">
+            <step-company-data></step-company-data>
+          </div>
+          <div *ngSwitchCase="2">
+            <step-address-data></step-address-data>
+          </div>
+          <div *ngSwitchCase="3">
+            <app-contract-form-step1></app-contract-form-step1>
+          </div>
+          <div *ngSwitchCase="4">
+            <app-contract-form-step2></app-contract-form-step2>
+          </div>
+          <div *ngSwitchCase="5">
+            <step-documents></step-documents>
+          </div>
+          <div *ngSwitchCase="6">
+            <nz-result nzStatus="success" nzTitle="Vielen Dank"
+              nzSubTitle="Ihre Daten wurden erfolgreich aktualisiert. Bitte drücken Sie die Schaltfläche, um zum Kundenportal zu gelangen.">
+              <div nz-result-extra>
+                <button nz-button nzSize="large" nzType="primary" routerLink="/home/start">Zum Kundenportal</button>
+              </div>
+            </nz-result>
+          </div>
+        </form>
+        <nz-divider></nz-divider>
+        <nz-row>
+          <nz-col nzSpan="12" nzOffset="6">
+            <div class="operator" *ngIf="current < 6">
+
+              <button (click)="pre()" *ngIf=" current > 0 && current <= 6" nz-button nzSize="large" nzType="default"
+                class="btn_style">
+                <span>Zurück</span>
+              </button>
+              <button (click)="next()" *ngIf="current < 6" nz-button nzType="primary" nzSize="large" class="btn_style">
+                <span>Weiter</span>
+              </button>
+              <button (click)="done(f.value)" *ngIf="current === 6" nz-button nzType="primary" nzSize="large">
+                <span>Fertig</span>
+              </button>
+            </div>
+          </nz-col>
+        </nz-row>
+      </div>
+    </div>
+  </div>
+</div>

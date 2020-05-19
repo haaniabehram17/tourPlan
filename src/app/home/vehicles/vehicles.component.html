@@ -1,0 +1,64 @@
+<nz-content>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>Stammdaten</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Fahrzeuge</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <nz-card>
+    <div class="operator">
+      <nz-row nzGutter="24" style="margin-bottom:24px">
+        <nz-col nzSpan="8">
+          <button nz-button nzType="primary" routerLink="new">Neues Fahrzeug</button>
+        </nz-col>
+        <nz-col nzSpan="8">
+        </nz-col>
+        <nz-col nzSpan="8">
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="Bitte Suchbegriff eingeben." (ngModelChange)="onChange($event)"
+              [ngModel]="searchText" />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon nzType="search"></i>
+          </ng-template>
+        </nz-col>
+      </nz-row>
+    </div>
+    <div *ngIf="error != ''" class="alert">
+      <nz-alert nzType="error" [nzMessage]="error"></nz-alert>
+    </div>
+    <div class="alert">
+      <nz-alert nzType="info"
+        nzMessage="{{ numberOfChecked }} {{numberOfChecked != 1 ? 'Fahrzeuge' : 'Fahrzeug'}} gewählt" nzShowIcon>
+      </nz-alert>
+    </div>
+    <!--    table-->
+    <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="vehiclesData"
+      (nzCurrentPageDataChange)="currentPageDataChange($event)">
+      <thead>
+        <tr>
+          <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate"
+            (nzCheckedChange)="checkAll($event)">
+          </th>
+          <th>Bezeichnung</th>
+          <th>straße</th>
+          <th>Postleizahl</th>
+          <th>Ort</th>
+          <th>Land</th>
+          <th>Ansprechpartner</th>
+          <th>Erstellt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of rowSelectionTable.data | filter:searchText">
+          <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+          <td>{{ data.designation }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.postCode }}</td>
+          <td>{{ data.place }}</td>
+          <td>{{ data.country }}</td>
+          <td>{{ data.contactPerson }}</td>
+          <td>{{ data.created }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</nz-content>

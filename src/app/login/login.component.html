@@ -1,0 +1,47 @@
+<div class="vertical-center">
+  <div class="vertical-center-wrapper">
+    <div class="vertical-center-container">
+      <div class="top">
+        <div class="header">
+          <img src="/assets/images/logo-m.png" alt="PTC Logo" class="logo">
+        </div>
+        <div class="desc">
+          Anmeldung für das Kundenportal.
+        </div>
+      </div>
+      <div *ngIf="error != ''" class="error">
+        <nz-alert nzType="error" [nzMessage]="error"></nz-alert>
+      </div>
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Bitte Email eingeben!">
+            <nz-input-group nzSize="large" nzPrefixIcon="user">
+              <input type="text" nz-input email #nameRef formControlName="username" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Bitte Passwort eingeben!">
+            <nz-input-group nzSize="large" nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Passwort" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button nzSize="large" class="login-form-button" [nzType]="'primary'"
+              [disabled]="!validateForm.valid" [nzLoading]="loading">Einloggen</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <div style="text-align:center;">
+        <a routerLink="/forgotPassword">Passwort vergessen?</a>
+      </div>
+      <!-- <button nz-button nzSize="large" class="login-form-button" [nzType]="'primary'"
+      [nzLoading]="loading" (click)="login()">Einloggen</button> -->
+    </div>
+  </div>
+</div>
+<div class="footer">
+  ...
+</div>

@@ -1,0 +1,72 @@
+<!--<form (ngSubmit)="showLocation()">-->
+<!--  <input type="text" [(ngModel)]="address" required [ngModelOptions]="{standalone: true}">-->
+<!--  <button type="submit">Show Location</button>-->
+<!--</form>-->
+<div class="container">
+<!--  <div class="form-group">-->
+<!--    <input-->
+<!--      placeholder="search for location"-->
+<!--      autocorrect="off"-->
+<!--      autocapitalize="off"-->
+<!--      spellcheck="off"-->
+<!--      type="text"-->
+<!--      class="form-control"-->
+<!--      #search-->
+<!--      [formControl]="searchControl">-->
+<!--    <button >add</button>-->
+<!--  </div>-->
+  <agm-map
+    [latitude]="latitude"
+    [longitude]="longitude"
+    [scrollwheel]="false"
+    [zoom]="zoom"
+    [usePanning]='true'
+    (mapReady)="mapReady($event)"
+  >
+    <div *ngIf="showMarker">
+      <agm-marker
+        *ngFor="let loc of markersList"
+        [latitude]=loc.lat
+        [longitude]=loc.lng
+      >
+      </agm-marker>
+    </div>
+<!--    [iconUrl]="'http://image.ibb.co/bZ3wLn/origin.png'"-->
+    <agm-direction [origin]=origin
+                   [destination]=destination
+                   [waypoints]=waypoints
+    >
+    </agm-direction>
+  </agm-map>
+</div>
+<!--<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">-->
+<!--  <agm-direction [origin]=origin-->
+<!--                 [destination]=destination-->
+<!--                 [waypoints]=waypoints-->
+<!--  >-->
+<!--  </agm-direction>-->
+<!--  <div *ngIf="showMarker">-->
+<!--  <agm-marker-->
+<!--    *ngFor="let loc of markers"-->
+<!--    [longitude]=loc.lng-->
+<!--    [latitude]=loc.lat-->
+<!--  >-->
+<!--    <agm-info-window>-->
+<!--      <strong>InfoWindow content</strong>-->
+<!--    </agm-info-window>-->
+<!--  </agm-marker>-->
+<!--  </div>-->
+<!--</agm-map>-->
+<!--[waypoints]="waypoints1?.Locations"-->
+<!--<agm-map-->
+<!--  [latitude]="locations?.lat"-->
+<!--  [longitude]="locations?.lng"-->
+<!--  [zoom]="8"-->
+<!--  [disableDefaultUI]="false"-->
+<!--  [zoomControl]="false">-->
+<!--  <agm-marker-->
+<!--    [latitude]="locations?.lat"-->
+<!--    [longitude]="locations?.lng">-->
+<!--  </agm-marker>-->
+<!--</agm-map>-->
+<!--[optimizeWaypoints]="clickMessage"-->

@@ -1,0 +1,211 @@
+<nz-content>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>Einstellungen</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Profil</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <nz-row nzGutter="24">
+    <nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="7">
+      <nz-card>
+        <div class="antd-pages-account-center-center-avatarHolder">
+          <img alt="" src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png">
+          <div class="antd-pages-account-center-center-name">
+            Lars Gebhardt
+          </div>
+        </div>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Contact Person" nzIcon="user" (click)="toggle()" [style.background-color]="isExpanded ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Address" nzIcon="home" (click)="toggle1()" [style.background-color]="isExpanded1 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <nz-divider></nz-divider>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Billing Address" nzIcon="environment"  (click)="toggle2()" [style.background-color]="isExpanded2 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Bank Information" nzIcon="euro"  (click)="toggle3()" [style.background-color]="isExpanded3 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+      </nz-card>
+    </nz-col>
+    <nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="16" nzXl="17">
+      <nz-card>
+        <nz-card-tab>
+          <nz-tabset nzSize="large" [(nzSelectedIndex)]="index1">
+            <nz-tab nzTitle="{{Modules}}"></nz-tab>
+            <nz-tab nzTitle="{{AvailableModules}}"></nz-tab>
+            <nz-tab nzTitle="{{Documents}}"></nz-tab>
+          </nz-tabset>
+        </nz-card-tab>
+        <div [ngSwitch]="index1">
+          <div *ngSwitchCase="0">
+        <ul>
+          <li *ngFor="let newdata of allModules">
+              {{ newdata.name }}
+            <nz-divider></nz-divider>
+            {{ newdata.information }}
+            <nz-divider></nz-divider>
+          </li>
+        </ul>
+          </div>
+          <div *ngSwitchCase="1">
+            <ul>
+              <li *ngFor="let newdata of availableModules">
+                {{ newdata.name }}
+                <nz-divider></nz-divider>
+                {{ newdata.information }}
+              </li>
+            </ul>
+          </div>
+          <div *ngSwitchCase="2">
+            <ul>
+              <li *ngFor="let newdata of allModules">
+                {{ newdata.name }}
+                <nz-divider></nz-divider>
+                {{ newdata.information }}
+                <nz-divider></nz-divider>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nz-card>
+    </nz-col>
+  </nz-row>
+</nz-content>
+
+
+<!-- <div class="macontainer">
+  <div nz-row>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="7" class="ant-card-pad">
+      <nz-card>
+        <div class="antd-pages-account-center-center-avatarHolder">
+          <img alt="" src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png">
+          <div class="antd-pages-account-center-center-name">
+            Lars Gebhardt
+          </div>
+        </div> -->
+<!--        <div nz-row>-->
+<!--          <div nz-col nzSpan="1">-->
+<!--            <i nz-icon nzType="user" nzTheme="outline"></i>-->
+<!--          </div>-->
+<!--          <div nz-col nzSpan="23">-->
+<!--            <p>Contact Person</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div nz-row>-->
+<!--          <div nz-col nzSpan="1">-->
+<!--            <i nz-icon nzType="home" nzTheme="outline"></i>-->
+<!--          </div>-->
+<!--          <div nz-col nzSpan="23">-->
+<!--            <p>Address</p>-->
+<!--          </div>-->
+<!--        </div>-->
+        <!-- <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Contact Person" nzIcon="user" (click)="toggle()" [style.background-color]="isExpanded ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Address" nzIcon="home" (click)="toggle1()" [style.background-color]="isExpanded1 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <nz-divider></nz-divider>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Billing Address" nzIcon="environment"  (click)="toggle2()" [style.background-color]="isExpanded2 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+        <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+          <li nz-submenu nzTitle="Bank Information" nzIcon="euro"  (click)="toggle3()" [style.background-color]="isExpanded3 ? '#f0f0f0' : '#FFFFFF'">
+            <div style="padding: 10px; line-height: 0.5;margin: 10px 0px 0px 34px;">
+              <p>PTC  telematik </p>
+              <p>Rheinstrasse</p>
+              <p>Rheinstrasse germany</p>
+            </div>
+          </li>
+        </ul>
+      </nz-card>
+    </div>
+
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="16" nzXl="17">
+      <nz-card style="width: 100%;padding: 14px;">
+        <nz-card-tab>
+          <nz-tabset nzSize="large" [(nzSelectedIndex)]="index1">
+            <nz-tab nzTitle="{{Modules}}"></nz-tab>
+            <nz-tab nzTitle="{{AvailableModules}}"></nz-tab>
+            <nz-tab nzTitle="{{Documents}}"></nz-tab>
+          </nz-tabset>
+        </nz-card-tab>
+        <div [ngSwitch]="index1">
+          <div *ngSwitchCase="0">
+        <ul>
+          <li *ngFor="let newdata of allModules">
+              {{ newdata.name }}
+            <nz-divider></nz-divider>
+            {{ newdata.information }}
+            <nz-divider></nz-divider>
+          </li>
+        </ul>
+          </div>
+          <div *ngSwitchCase="1">
+            <ul>
+              <li *ngFor="let newdata of availableModules">
+                {{ newdata.name }}
+                <nz-divider></nz-divider>
+                {{ newdata.information }}
+              </li>
+            </ul>
+          </div>
+          <div *ngSwitchCase="2">
+            <ul>
+              <li *ngFor="let newdata of allModules">
+                {{ newdata.name }}
+                <nz-divider></nz-divider>
+                {{ newdata.information }}
+                <nz-divider></nz-divider>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div> -->
+
+

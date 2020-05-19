@@ -1,0 +1,99 @@
+<nz-content>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Übersicht</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <nz-row nzGutter="16">
+    <nz-col nzSpan="6">
+      <!-- TODO: Make card as custom component -->
+      <!-- TODO: Dynamic app list -->
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionLogin]">
+        <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle=" Flottenportal" nzDescription="Ihre App für Echtzeitortung und Tracking.">
+        </nz-card-meta>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar [nzSize]="64" nzSrc="assets/images/flottenportal-app.png"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <img alt="Flottenportal App" src="assets/images/fp-cover.jpg" />
+      </ng-template>
+      <ng-template #actionLogin>
+        <button nz-button nzType="default" (click)="login()"><i nz-icon nzType="login"></i>Einloggen</button>
+      </ng-template>
+    </nz-col>
+    <nz-col nzSpan="6">...</nz-col>
+    <nz-col nzSpan="6">...</nz-col>
+    <nz-col nzSpan="6">...</nz-col>
+  </nz-row>
+  <!-- <nz-row nzGutter="16">
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="4323 | number: '1.0-2'" [nzTitle]="'Routen'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="2332 | number: '1.0-2'" [nzTitle]="'Arbeitszeiten'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="5630 | number: '1.0-2'" [nzTitle]="'Stopps'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="4323" [nzTitle]="'Durchfahrten'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+  </nz-row>
+  <div style="margin-bottom:16px;"></div>
+  <nz-row nzGutter="16">
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="5432 | number: '1.0-2'" [nzTitle]="'Zündungssignale'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="6509 | number: '1.0-2'" [nzTitle]="'Alarme'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="985 | number: '1.0-2'" [nzTitle]="'Nebenantriebs-Signale'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="6">
+      <nz-card>
+        <nz-statistic [nzValue]="32321" [nzTitle]="'Wegpunkte'"
+          [nzSuffix]="''" [nzValueStyle]="{ color: '#111' }">
+        </nz-statistic>
+      </nz-card>
+    </nz-col>
+  </nz-row> -->
+</nz-content>
+
+<!-- <nz-content>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>User</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div class="inner-content">
+    <p>start works!</p>
+  </div>
+</nz-content> -->

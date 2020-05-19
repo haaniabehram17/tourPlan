@@ -1,0 +1,38 @@
+<!----Contract form text------>
+<nz-row nzGutter="24">
+  <nz-col nzSpan="12" nzOffset="6">
+    <h1>Vertragsdokumente</h1>
+    <p>
+      Bitte lesen sie unsere Allgemeinen Geschäftsbedingungen und informieren sie sich über unsere Maßnahmen zur
+      Datensicherheit. Alle Dokumente sind im PDF Format hinterlegt.
+    </p>
+    <ul>
+      <li><a href="assets/pdf/terms-of-service.pdf" target="_blank">Allgemeinen Geschäftsbedingungen</a> </li>
+      <li><a href="assets/pdf/toms-ptc-telematik-intro.pdf" target="_blank">Sicherheits- und Datenschutzkonzept</a></li>
+      <li><a href="assets/pdf/toms-ptc-telematik-attachment.pdf" target="_blank">Technische und organisatorische
+          Maßnahmen(TOM) zur Datensicherheit</a></li>
+      <li><a href="assets/pdf/toms-telehouse.pdf" target="_blank">Technische und organisatorische Maßnahmen(TOM) zur
+          Datensicherheit unseres Datenverarbeiters Telehouse GmbH Deutschland</a> </li>
+    </ul>
+    <p>
+      Bitte bestätigen Sie uns den Erhalt per Download und das Sie die Dokumente gelesen haben:
+    </p>
+    <p>
+      <label nz-checkbox [(ngModel)]="tosCheck">
+        Ich habe die <strong>Allgemeinen Geschäftsbedingungen</strong> gelesen und bin einverstanden.</label>
+    </p>
+    <p>
+      <label nz-checkbox [(ngModel)]="securityCheck">
+        Ich habe die Informationen zum <strong>Sicherheits- und Datenschutzkonzept</strong> gelesen.</label>
+    </p>
+    <p>
+      <label nz-checkbox [(ngModel)]="tomsCheck">
+        Ich habe die Informationen über die <strong>TOM zur Datensicherheit</strong> gelesen und bin einverstanden.</label>
+      </p>
+    <p>
+      <label nz-checkbox [(ngModel)]="telehouseCheck">
+        Ich habe Informationen über die <strong>Telehouse-TOM zur Datensicherheit</strong> unseres Datenverarbeiters Telehouse gelesen.
+      </label>
+    </p>
+  </nz-col>
+</nz-row>

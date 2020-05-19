@@ -1,0 +1,38 @@
+<nz-layout>
+  <nz-sider
+    nzWidth="460px"
+    style="height: 814px;"
+    nzTheme="light"
+    [nzCollapsedWidth]="0"
+    [(nzCollapsed)]="isCollapsed"
+    nzCollapsible
+    nzBreakpoint="lg"
+  >
+    <nz-tabset
+      [nzTabPosition]="'top'"
+      [nzType]="'card'"
+      [nzTabBarExtraContent]="extraTemplate"
+      (nzSelectedIndexChange)="switch()"
+    >
+      <nz-tab [nzTitle]="'Select Locations'" (nzClick)="dumFun()">
+          <app-select-location (tabChange)="changeTab()" style="padding: 0px;background-color: #FFFFFF"></app-select-location>
+      </nz-tab>
+      <nz-tab [nzTitle]="'Tour PLan'">
+          <app-plan-tour></app-plan-tour>
+      </nz-tab>
+    </nz-tabset>
+    <ng-template #extraTemplate>
+      <button nz-button>zuruck</button>
+    </ng-template>
+  </nz-sider>
+  <nz-layout class="inner-content">
+<!--    <div nz-row>-->
+<!--      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>-->
+<!--    </div>-->
+    <nz-content>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+      <app-map [tabChanged]="tabChanged.asObservable()"></app-map>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+

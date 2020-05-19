@@ -1,0 +1,130 @@
+<nz-row nzGutter="24">
+  <nz-col nzSpan="16" nzOffset="4">
+    <div nz-row nzGutter="24">
+      <div nz-col nzSpan="12">
+
+        <!-----------heading para 6-------->
+        <p>
+          <b>6. {{headingpara6}}</b>
+        </p>
+
+        <p>Auftragsgemäß wird eine monatliche Pauschale vereinbart.</p>
+
+        <p>EUR: 141,40 (einhunderteinundvierzig,40)</p>
+
+        <p>
+          <label nz-checkbox [(ngModel)]="checked1">inklusive Einbau vor Ort. </label><br />
+          <label nz-checkbox [(ngModel)]="checked2">inklusive Vor-Ort-Garantie für die Vertragslaufzeit (EUR 2,95 / pro
+            Unit
+            / mtl.)</label><br />
+          <label nz-checkbox [(ngModel)]="checked3">inklusive Vor-Ort-Garantie, einschließlich RFID-Geräte (EUR 3,95 /
+            pro
+            Unit / mtl.)</label><br />
+          <label nz-checkbox [(ngModel)]="checked4">inklusive Apps für Anzahl Nutzer – 2 (zwei) -</label>
+        </p>
+
+        <p> Laufzeitbeginn: {{Laufzeitbeginn}}</p>
+        <p> Laufzeitende: {{Laufzeitende}}</p>
+        <p>sofern sich die Vereinbarung nicht entsprechend Ziff. 2.2 verlängert.</p>
+
+        <!-----------heading para 7-------->
+
+        <p>
+          <b>7. {{headingpara7}}</b>
+        </p>
+        <p>Der Auftraggeber zahlt für die im Angebot im Einzelnen aufgeführten Leistungen im Voraus</p>
+        <p>Zahlungszyklus:</p>
+        <p>
+          <label nz-checkbox [(ngModel)]="monatlich" name="monatlich">monatlich</label><br />
+          <label nz-checkbox [(ngModel)]="viertel" name="viertel">vierteljährlich</label><br />
+          <label nz-checkbox [(ngModel)]="halb" name="halb">halbjährlich</label><br />
+          <label nz-checkbox [(ngModel)]="jahr" name="jahr">jährlich</label>
+        </p>
+        <p>Die Rechnungen werden per E-Mail an die folgende Adresse versendet:</p>
+
+        <form nz-form>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">Vorname/Name:</nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Vorname/Name is required" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.vorname" name="Vorname" required
+                class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">Email</nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Email is not valid" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.email" name="email" required email
+                class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+        <p>Alle Preise sind Nettopreise.</p>
+      </div>
+
+      <div nz-col nzSpan="12">
+
+        <!----------- para 7-------->
+
+        <p>{{ paratext7_1 }}</p>
+
+        <u>SEPA-Basislastschriftmandat</u>
+
+        <p>{{paratext7_2}}</p>
+
+        <p>{{paratext7_3}}</p>
+
+        <form nz-form>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">Kontoinhaber: </nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Kontoinhaber wird benötigt" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.kontoinhaber" name="Kontoinhaber"
+                required class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">Bankverbindung</nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Bankverbindung wird benötigt" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.bankverbindung"
+                name="Bankverbindung" required class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">Sitz der Bank: </nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Bank wird benötigt" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.bank" name="Bank" required
+                class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24">IBAN: </nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="IBAN wird benötigt" class="inputborder">
+              <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.iBAN" name="IBAN" required
+                class="inputStyle" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-row>
+            <nz-col nzSpan="8">
+              <nz-form-item>
+                <nz-form-label [nzSpan]="24">BIC:</nz-form-label>
+                <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="BIC wird benötigt" class="inputborder">
+                  <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.bIC" name="BIC" required
+                    class="inputStyle" />
+                </nz-form-control>
+              </nz-form-item>
+            </nz-col>
+            <nz-col nzSpan="16">
+              <nz-form-item>
+                <nz-form-label [nzSpan]="24">Ort / Datum</nz-form-label>
+                <nz-form-control nzHasFeedback [nzSpan]="18" nzErrorTip="Ort / Datum wird benötigt" class="inputborder">
+                  <input nz-input [ngModel]="this.currentState.ContractFormPage2Component.ortDatum" name="Ort/Datum"
+                    required class="inputStyle" />
+                </nz-form-control>
+              </nz-form-item>
+            </nz-col>
+          </nz-row>
+          <label nz-checkbox [(ngModel)]="payUpfront">Ich zahle per Rechnung im Vorraus.</label>
+        </form>
+      </div>
+    </div>
+  </nz-col>
+</nz-row>

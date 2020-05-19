@@ -1,0 +1,62 @@
+.vertical-center {
+  display        : table;
+  height         : 100%;
+  width          : 100%;
+  background     : #f0f2f5 url('/assets/images/background.5825f033.svg') no-repeat 50%;
+  background-size: 100%;
+
+  .vertical-center-wrapper {
+    padding-bottom: 15vh;
+    display       : table-cell;
+    *display      : inline-block;
+    vertical-align: middle;
+
+    .vertical-center-container {
+      min-width: 260px;
+      width    : 368px;
+      margin   : 0 auto;
+
+      .top {
+        text-align: center;
+
+        .header {
+          .logo {
+            height: 96px;
+          }
+        }
+
+        .desc {
+          font-size    : 14px;
+          color        : rgba(0, 0, 0, 0.45);
+          margin-top   : 12px;
+          margin-bottom: 40px;
+        }
+      }
+
+      .error {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+.footer {
+  position  : absolute;
+  width     : 100%;
+  bottom    : 0;
+  padding   : 0 16px;
+  margin    : 48px 0 24px;
+  text-align: center;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-form-forgot {
+  text-align: center;
+}
+
+.login-form-button {
+  width: 100%;
+}

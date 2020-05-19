@@ -1,0 +1,190 @@
+<nz-layout class="layout">
+  <nz-sider nzWidth="256px" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo">
+      <div *ngIf="!isCollapsed">
+        <img src="assets/images/logo.png" alt="ptc telematik logo">
+      </div>
+      <div *ngIf="isCollapsed">
+        <img src="../../assets/images/logo-symbol.png" alt="ptc telematik logo">
+      </div>
+    </div>
+    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzTitle="Dashboard" nzIcon="bar-chart" nzOpen>
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/home/start">Übersicht</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Stammdaten" nzIcon="database" nzOpen>
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/home/vehicles">Fahrzeuge</a>
+          </li>
+          <li *ngIf="displayEmployeeLink()" nz-menu-item nzMatchRouter>
+            <a routerLink="/home/employees">Mitarbeiter</a>
+          </li>
+          <li *ngIf="displayLocationLink()" nz-menu-item nzMatchRouter>
+            <a routerLink="/home/locations">Standorte</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Dokumente" nzIcon="file" nzOpen>
+        <ul>
+          <li nz-menu-item>Verträge</li>
+          <li nz-menu-item>Rechnungen</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Einstellungen" nzIcon="setting" nzOpen>
+        <ul>
+          <li nz-menu-item routerLink="/home/profile" nzMatchRouter>Profil</li>
+          <li nz-menu-item routerLink="/home/account/basicSetting" nzMatchRouter>Accountdaten</li>
+          <li nz-menu-item routerLink="/home/bankdetails" nzMatchRouter>Bankverbindung</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Support" nzIcon="phone">
+        <ul>
+          <li nz-menu-item routerLink="/home/contact">Kontakt</li>
+        </ul>
+      </li>
+      <nz-divider></nz-divider>
+      <li nz-submenu nzTitle="Tour Plan" nzIcon="file">
+        <ul>
+          <li nz-menu-item routerLink="/home/newTour">PLan Tour</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"></i>
+      <div class="right">
+        <a nz-dropdown [nzDropdownMenu]="menu">
+          {{ payload.name }}
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>Profil</li>
+            <li nz-menu-item>Einstellungen</li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item><a nz-link (click)="logout()">Logout</a></li>
+          </ul>
+        </nz-dropdown-menu>
+      </div>
+    </nz-header>
+    <router-outlet></router-outlet>
+    <footer class="ant-layout-footer" style="padding: 0px;">
+      <footer class="ant-global-footer">
+        <div class="ant-global-footer-copyright">Copyright <span><i nz-icon nzType="copyright" nzTheme="outline"></i></span> 2020 PTC Telematik Gmbh.</div>
+        <div class="ant-global-footer-links">
+          <a href="">Term &amp; Conditions</a> &nbsp;&nbsp;
+          <a  href="">Privacy &amp; Policy</a>
+        </div>
+      </footer>
+    </footer>
+  </nz-layout>
+</nz-layout>
+
+<!-- <nz-layout class="left-layout">
+  <nz-layout>
+    <nz-sider nzWidth="500px">
+      <div class="card-container">
+        <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+          <nz-tab [nzTitle]="'Standorte'">
+            <nz-card>
+              <div nz-row nzType="flex" nzJustify="end" nzGutter="8">
+                <div nz-col nzSpan="16">
+                  <nz-input-group [nzSuffix]="suffixIconSearch">
+                    <input type="text" nz-input placeholder="Standort suchen" (ngModelChange)="onChange($event)"
+                      [ngModel]="searchText" />
+                  </nz-input-group>
+                  <ng-template #suffixIconSearch>
+                    <i nz-icon nzType="search"></i>
+                  </ng-template>
+                </div>
+                <div nz-col nzSpan="8">
+                  <button nz-button nzType="primary" nzSize="default">{{numberOfChecked}} Standorte +</button>
+                </div>
+              </div>
+            </nz-card>
+            <nz-divider></nz-divider>
+            <nz-table #rowSelectionTable [nzData]="listOfAllData" [nzShowPagination]="false"
+              (nzCurrentPageDataChange)="currentPageDataChange($event)" [nzPageSize]="1000" [nzScroll]="{ y: '100%' }">
+              <thead>
+                <tr>
+                  <th nzWidth="25px" nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked"
+                    [nzIndeterminate]="isIndeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                  <th colspan="2" style="text-align: left;">
+                    {{ rowSelectionTable.data.length }} Standorte
+                  </th>
+                  <th>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of rowSelectionTable.data">
+                  <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" [nzDisabled]="data.disabled"
+                    (nzCheckedChange)="refreshStatus()"></td>
+                  <td nzWidth="50px">
+                    <nz-badge [nzCount]="iconTemplate">
+                      <nz-avatar nzIcon="user" [nzSize]="64" [nzShape]="'square'"></nz-avatar>
+                    </nz-badge>
+                    <ng-template #iconTemplate>
+                      <i *ngIf="data.status == '16'" nz-icon nzType="clock-circle" nzTheme="fill"
+                        class="ant-scroll-number-custom-component" style="color: #f5222d"></i>
+                      <i *ngIf="data.status == '2'" nz-icon nzType="right-circle" nzTheme="fill"
+                        class="ant-scroll-number-custom-component" style="color: #52c41a"></i>
+                    </ng-template>
+                  </td>
+                  <td>{{ data.name }} <br />
+                    <small>K-HC 1234 | Herr Meier | 45 km/h</small><br />
+                    <small>{{ data.streetNo }}</small><br />
+                    <small>{{ data.postalCode }} {{ data.city }}</small>
+                  </td>
+                  <td nzWidth="25px">
+                    <button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzSize]="'small'" nzType="primary">
+                      <i nz-icon nzType="plus"></i></button>
+                    <nz-dropdown-menu #menu="nzDropdownMenu">
+                      <ul nz-menu>
+                        <li nz-menu-item>
+                          <a>1st item</a>
+                        </li>
+                        <li nz-menu-item>
+                          <a>2nd item</a>
+                        </li>
+                        <li nz-menu-item>
+                          <a>3rd item</a>
+                        </li>
+                      </ul>
+                    </nz-dropdown-menu>
+                  </td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </nz-tab>
+          <nz-tab [nzTitle]="titleTemplate">
+            <ng-template #titleTemplate>
+              Planung
+              <nz-badge [nzCount]="17"></nz-badge>
+            </ng-template>
+            <nz-card>
+              test
+            </nz-card>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </nz-sider>
+    <nz-content class="right-layout">
+      <nz-header id="header">
+        <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+          <li nz-menu-item nzSelected>nav 1</li>
+          <li nz-menu-item>nav 2</li>
+          <li nz-menu-item>nav 3</li>
+        </ul>
+      </nz-header>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout> -->

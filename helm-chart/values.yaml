@@ -1,0 +1,40 @@
+# Default App Settings
+app:
+  # The App Name (domain compatible)
+  name: customer-portal-app
+
+  # Hostname where the app should be reachable
+  hostname: kundenportal.ptc-telematik.de
+
+  # Where to make the service available
+  #  none:           Kubernetes internal only
+  #  nginx-internal: Only on internal network
+  #  nginx-external: Public
+  ingressClass: "nginx-external"
+
+  # HTTPS configuration
+  https:
+    enabled: true
+
+# Service specific settings
+service:
+  port: 80
+
+# Deployment specific settings
+deployment:
+
+  # Docker image to use
+  image: registry.gitlab.ptc-telematik.de/flottenportal/customer-portal-app:latest
+  imagePullPolicy: Always
+  imagePullSecret: ptc-gitlab-imagepullsecret
+  replicas: 2
+
+  containerPort: 80
+
+  initCommand: ['npm', 'run', 'migration:run:prod']
+
+  environment: production
+
+  apiUrl: https://localhost:8080/
+
+  apiBaseUrl: 'https://ptc-online.de:8443/CustomerDetails.svc/'

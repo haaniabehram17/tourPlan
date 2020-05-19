@@ -1,0 +1,150 @@
+<!--        part of first div-->
+<nz-card [nzBordered]="true">
+  <div nz-row nzGutter="16">
+    <div nz-col class="gutter-row" [nzMd]="{ span: 24 }" [nzLg]="{ span: 12 }" [nzXl]="{ span: 12 }" [nzXXl]="{ span: 15 }">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="search" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+      <div class="ant-list-item-meta-description" style="margin-top: 5px">
+      <span>
+        <span class="ant-tag" style="cursor: pointer">Koblenz</span>
+        <span class="ant-tag" style="cursor: pointer">Frankfurt</span>
+        <span class="ant-tag" style="cursor: pointer">Colonge</span>
+        <span><i nz-icon nzType="plus" nzTheme="outline" class="btn_style1"></i></span>
+      </span>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" [nzMd]="{ span: 24 }" [nzLg]="{ span: 12 }" [nzXl]="{ span: 12 }" [nzXXl]="{ span: 9 }">
+      <button nz-button nzType="primary" class="btn_style">
+        <b> Selected locations
+          {{selectedLocations.length}}
+        </b>
+      </button>
+        <label nz-checkbox [(ngModel)]="checked">Optimize Tour</label>
+    </div>
+  </div>
+  <div nz-row nzGutter="16" style="margin-top: 5px">
+    <div class="gutter-row" style="padding-left: 8px;padding-right: 8px">
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" class="form-group">
+          <input placeholder="search for location"
+                 autocorrect="off"
+                 autocapitalize="off"
+                 spellcheck="off"
+                 class="form-control"
+                 #search
+                 [formControl]="searchControl"
+                 nz-input />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <button nz-button nzType="primary"><i nz-icon nzType="plus" nzTheme="outline"></i></button>
+      </ng-template>
+    </div>
+  </div>
+</nz-card>
+<div
+  nzType="flex"
+  nzJustify="space-around"
+  nz-row
+  nzGutter="16"
+  class="bgStyle"
+  nzAlign="middle">
+
+  <div nz-col nzSpan="4" nzOffset="2" class="gutter-row">
+<!--    <div *ngFor="let list of locationList">-->
+      <b>Locations</b>
+<!--    </div>-->
+  </div>
+  <div
+    nz-col
+    nzSpan="4"
+    nzOffset="2"
+    class="gutter-row">
+      <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload" (change)="showUploadbtn()">
+        <button nz-button><i nz-icon nzType="upload"></i><span>Select File</span></button>
+      </nz-upload>
+      <button
+        *ngIf="showUploadbuttonn"
+        nz-button
+        [nzType]="'primary'"
+        [nzLoading]="uploading"
+        (click)="handleUpload()"
+        [disabled]="fileList.length == 0"
+        style="margin-top: 16px"
+      >
+        {{ uploading ? 'Uploading' : 'Start Upload' }}
+      </button>
+  </div>
+</div>
+<div nz-row nzGutter="16">
+  <div nz-col class="gutter-row">
+    <label nz-checkbox (nzCheckedChange)="showLocationFun()">
+      Show all Locations
+    </label>
+  </div>
+</div>
+<div style="margin-top: 12px" class="long-div">
+<!--  <nz-list-->
+<!--    [nzDataSource]="locationList"-->
+<!--    nzBordered-->
+<!--    nzSize="small"-->
+<!--    [nzRenderItem]="defaultItem"-->
+<!--  >-->
+<!--    <ng-template #defaultItem let-item>-->
+<!--        <nz-list-item>-->
+<!--            <label nz-checkbox (nzCheckedChange)="addClick(item, $event)">-->
+<!--              <nz-avatar nzShape="square" nzSize="small" nzIcon="user"></nz-avatar>-->
+<!--              &nbsp;&nbsp;{{ item.location }}-->
+<!--            </label>-->
+<!--        </nz-list-item>-->
+<!--    </ng-template>-->
+<!--  </nz-list>-->
+  <nz-list nzBordered>
+    <nz-list-item *ngFor="let item of locationList">
+      <label nz-checkbox (nzCheckedChange)="addClick(item, $event)">
+      <mark><nz-avatar nzShape="square" nzSize="small" nzIcon="user"></nz-avatar></mark>
+      {{ item.location }}
+      </label>
+    </nz-list-item>
+  </nz-list>
+<!--    <nz-list>-->
+<!--      <nz-list-item *cdkVirtualFor="let item of inputList">-->
+<!--        <nz-skeleton *ngIf="!item" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>-->
+<!--        <nz-list-item-meta-->
+<!--          *ngIf="item"-->
+<!--          [nzTitle]="nzTitle"-->
+<!--          nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"-->
+<!--        >-->
+<!--          <ng-template #nzTitle>-->
+<!--            <a href="https://ng.ant.design">{{ item.Locations }}</a>-->
+<!--          </ng-template>-->
+<!--        </nz-list-item-meta>-->
+<!--      </nz-list-item>-->
+<!--    </nz-list>-->
+<!--  <nz-list nzItemLayout="horizontal" [nzLoading]="loading" nzSize="small" class="long-div-inner">-->
+<!--    <nz-list-header>-->
+<!--      <label nz-checkbox (nzCheckedChange)="showLocationFun()">-->
+<!--        Show all Locations-->
+<!--      </label>-->
+<!--    </nz-list-header>-->
+<!--    &lt;!&ndash;  available locations&ndash;&gt;-->
+<!--    <div *ngIf="showLocationsCheck">-->
+<!--      <nz-list-item *ngFor="let item of inputList">-->
+
+
+<!--        <div class="ant-col-lg-24" style="padding-left: 8px; padding-right: 8px;">-->
+<!--          <label nz-checkbox (nzCheckedChange)="addClick(item, $event)">-->
+<!--&lt;!&ndash;            <nz-avatar [nzShape]="'square'" [nzIcon]="'user'">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png">&ndash;&gt;-->
+<!--&lt;!&ndash;            </nz-avatar>&ndash;&gt;-->
+<!--            &nbsp;&nbsp;{{ item.Locations }}-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </nz-list-item>-->
+<!--      <nz-list-empty *ngIf="inputList.length === 0"></nz-list-empty>-->
+<!--    </div>-->
+
+<!--  </nz-list>-->
+</div>

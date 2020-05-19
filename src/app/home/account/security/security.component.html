@@ -1,0 +1,17 @@
+<div class="antd-title">Security Settings</div>
+<nz-list nzItemLayout="horizontal">
+  <nz-list-item *ngFor="let item of data">
+    <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="nzDescription">
+      <ng-template #nzTitle
+      >{{ item.title }}
+      </ng-template>
+      <ng-template #nzDescription
+      >{{ item.description }}
+      </ng-template>
+    </nz-list-item-meta>
+    <div nz-list-item-action>
+      <a (click)="msg.info('edit')">{{item.edit}}</a>
+    </div>
+  </nz-list-item>
+<!--  <nz-list-empty *ngIf="data.length === 0"></nz-list-empty>-->
+</nz-list>

@@ -1,0 +1,150 @@
+<ng-template>
+  <!--        <app-edit-details></app-edit-details>-->
+  <div style="width: 400px;">
+    <div style="text-align: right;cursor: pointer">
+      <i nz-icon nzType="close" nzTheme="outline" (click)="clickMe()" style="color: red"></i>
+      <!--          <a (click)="clickMe()">Close</a>-->
+    </div>
+    <form nz-form>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="Planungsgruppe">Planungsgruppe</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-select
+            nzSize="small"
+            [ngModel]="gender"
+            name="gender"
+            nzPlaceHolder="Select a option and change input text above"
+            (ngModelChange)="genderChange($event)"
+          >
+            <nz-option nzValue="male" nzLabel="male"></nz-option>
+            <nz-option nzValue="female" nzLabel="female"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="Name">Name der Tour</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <input id="note" type="text" nz-input [ngModel]="Planungsgruppe" name="Planungsgruppe" nzSize="small"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="startzeit">Startzeit</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-time-picker [ngModel]="time" name="time" nzFormat="HH:mm" nzSize="small"></nz-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="startzeit">Standzeit</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-time-picker [ngModel]="time" name="time" nzFormat="HH:mm" nzSize="small"></nz-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="Fahrzeug">Fahrzeug</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-select
+            id="Fahrzeug"
+            nzSize="small"
+            [ngModel]="Fahrzeug"
+            name="gender"
+            nzPlaceHolder="Select a option and change input text above"
+            (ngModelChange)="genderChange($event)"
+          >
+            <nz-option nzValue="male" nzLabel="male"></nz-option>
+            <nz-option nzValue="female" nzLabel="female"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="Fahrer">Fahrer</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-select
+            id="Fahrer"
+            nzSize="small"
+            [ngModel]="Fahrer"
+            name="gender"
+            nzPlaceHolder="Select a option and change input text above"
+            (ngModelChange)="genderChange($event)"
+          >
+            <nz-option nzValue="male" nzLabel="male"></nz-option>
+            <nz-option nzValue="female" nzLabel="female"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="tourteil">tourteil</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <input type="text" nz-input [ngModel]="tourteil" name="tourteil" nzSize="small" style="width: 50%"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="tourteil">Einsatzstart</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-date-picker [(ngModel)]="date" name="date" (ngModelChange)="onChange($event)" nzSize="small"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8" nzFor="Wiederholungen">Wiederholungen</nz-form-label>
+        <nz-form-control [nzSpan]="15">
+          <nz-select
+            nzSize="small"
+            [ngModel]="Wiederholungen"
+            name="Wiederholungen"
+            nzPlaceHolder="Select a option and change input text above"
+            (ngModelChange)="genderChange($event)"
+          >
+            <nz-option nzValue="male" nzLabel="male"></nz-option>
+            <nz-option nzValue="female" nzLabel="female"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row>
+        <div nz-col nzSpan="15" nzOffset="8">
+          <!--                <nz-checkbox-group [(ngModel)]="checkOptionsOne" name="checkOptionsOne" (ngModelChange)="log(checkOptionsOne)"></nz-checkbox-group>-->
+          <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">
+            <div nz-row>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="A" name="A" [ngModel]="true">Montag</label></div>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="B">Dienstag</label></div>
+            </div>
+            <div nz-row>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="C">Mittwoch</label></div>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="D">Donnerstag</label></div>
+            </div>
+            <div nz-row>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="E">Freitag</label></div>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="E">Samstag</label></div>
+            </div>
+            <div nz-row>
+              <div nz-col nzSpan="12"><label nz-checkbox nzValue="E">Sonntag</label></div>
+            </div>
+          </nz-checkbox-wrapper>
+        </div>
+      </div>
+    </form>
+    <!--          <div nz-row>-->
+    <!--            <div nz-col [nzSpan]="6" [nzPush]="18">-->
+    <!--              <nz-form-item>-->
+    <!--                <nz-form-control style="text-align: right">-->
+    <!--                  <button nz-button nzType="primary">Submit</button>-->
+    <!--                </nz-form-control>-->
+    <!--              </nz-form-item>-->
+    <!--            </div>-->
+    <!--            <div nz-col [nzSpan]="18" [nzPull]="6">-->
+    <!--              <button nz-button nzType="danger" (click)="clickMe()">Cancel</button>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <div nz-row [nzGutter]="16">
+      <div nz-col class="gutter-row" [nzSpan]="18">
+        <div class="inner-box" style="text-align: right">
+          <button nz-button nzType="danger" (click)="clickMe()">Cancel</button>
+        </div>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <div class="inner-box" style="text-align: left">
+          <button nz-button nzType="primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<a (click)="clickMe()">Close</a>

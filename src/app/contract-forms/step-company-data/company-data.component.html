@@ -1,0 +1,384 @@
+<nz-row ngModelGroup="gcontactaddress">
+  <nz-col nzSpan="12" nzOffset="6">
+    <nz-alert nzType="info" nzMessage="Bitte prüfen Sie Ihre Stammdaten!" nzShowIcon nzCloseable></nz-alert>
+
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="6">
+        <nz-form-label nzfor="kdr1">Kundennummer</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.kundennummer" id="kdr1"
+          name="kundennummer" placeholder="Kundennummer" [disabled]="true" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="18">
+        <nz-form-label nzFor="firma1">Firma</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.firma" name="firma" id="firma1"
+          placeholder="Firma" nzSize="default" />
+      </nz-col>
+    </nz-row>
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="4">
+        <nz-form-label nzFor="Anr1">Anrede</nz-form-label>
+        <nz-select id="Anr1" [(ngModel)]="currentState.GeneralContactAddressComponent.anrede" name="anrede"
+          nzPlaceHolder="Anrede" nzSize="default">
+          <nz-option nzValue="Herr" nzLabel="Herr" nzSize="default"></nz-option>
+          <nz-option nzValue="Frau" nzLabel="Frau" nzSize="default"></nz-option>
+        </nz-select>
+      </nz-col>
+
+      <nz-col nzSpan="10">
+        <nz-form-label nzfor="vor1">Vorname</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.vorname" name="vorname" id="vor1"
+          placeholder="Vorname" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="10">
+        <nz-form-label nzfor="nachname1">Nachname</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.nachname" name="nachname"
+          id="nachname1" placeholder="Nachname" nzSize="default" />
+      </nz-col>
+
+    </nz-row>
+
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="12">
+        <nz-form-label nzfor="abteilung1">Abteilung</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.abteilung" name="abteilung"
+          id="abteilung1" placeholder="Department" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="12">
+        <nz-form-label nzFor="position1">Position</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.position" name="position"
+          id="position1" placeholder="Position" nzSize="default" />
+      </nz-col>
+    </nz-row>
+
+    <nz-divider nzDashed></nz-divider>
+
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="12">
+        <nz-form-label nzFor="add1">Anschrift</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.address" id="add1" name="address"
+          placeholder="Strasse, Nr." nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="12">
+        <nz-form-label nzfor="weitereAdresszeile">Zusatz</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.weitereAdresszeile"
+          id="weitereAdresszeile" name="weitereAdresszeile" placeholder="Zusatz, Stockwerk" nzSize="default" />
+      </nz-col>
+    </nz-row>
+
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="4">
+        <nz-form-label nzfor="plz1">Postleitzahl</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.plz" id="plz1" name="plz"
+          placeholder="Postleitzahl" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="10">
+        <nz-form-label nzfor="Ort">Ort</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.ort" name="ort" id="Ort"
+          placeholder="Ort" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="10">
+        <nz-form-label nzFor="lan1">Land</nz-form-label>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person"
+          [(ngModel)]="currentState.GeneralContactAddressComponent.land" name="land" nzPlaceHolder="Select a Country"
+          nzSize="default" id="lan1">
+          <nz-option *ngFor="let country of countries" nzLabel="{{country.name}}" nzValue="{{country.name}}"
+            nzSize="default"></nz-option>
+        </nz-select>
+      </nz-col>
+    </nz-row>
+    <nz-divider nzDashed></nz-divider>
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="8">
+        <nz-form-label nzfor="telefon1">Telefon</nz-form-label>
+        <input type="text" nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.telefon" name="telefon"
+          id="telefon1" placeholder="1234567" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="8">
+        <nz-form-label nzFor="mobilGe1">Mobil</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.mobilGeschaftlich" id="mobilGe1"
+          name="mobilGeschaftlich" placeholder="Mobil geschäftlich" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="8">
+        <nz-form-label nzfor="fax1">Fax</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.fax" id="fax1" name="fax"
+          placeholder="Fax" nzSize="default" />
+      </nz-col>
+    </nz-row>
+
+    <nz-row nzGutter="24">
+      <nz-col nzSpan="12">
+        <nz-form-label nzFor="email1">Email</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.email" name="email" id="email1"
+          placeholder="email" type="email" [disabled]="true" nzSize="default" />
+      </nz-col>
+
+      <nz-col nzSpan="12">
+        <nz-form-label nzfor="we1">Web</nz-form-label>
+        <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.web" id="we1" name="web"
+          placeholder="Web" nzSize="default" />
+      </nz-col>
+
+    </nz-row>
+  </nz-col>
+</nz-row>
+
+
+
+
+<!--      <div nz-row nzType="flex">-->
+<!--        <div nz-col nzSpan="24">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="3" nzRequired>Firma</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="21">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.firma"  name="firma" placeholder="Firma" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <div nz-row nzType="flex">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Anrede</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <nz-select-->
+<!--                id="anrede"-->
+<!--                [(ngModel)]="currentState.GeneralContactAddressComponent.anrede" name="anrede"-->
+<!--                nzPlaceHolder="Anrede"-->
+<!--                nzSize="default"-->
+<!--              >-->
+<!--                <nz-option nzValue="Herr" nzLabel="Herr" nzSize="default"></nz-option>-->
+<!--                <nz-option nzValue="Frau" nzLabel="Frau" nzSize="default"></nz-option>-->
+<!--              </nz-select>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>Vorname</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.vorname"  name="vorname" placeholder="Vorname" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>LastName</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16" >-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.nachname" name="nachname" placeholder="Nachname" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+
+<!--      <div nz-row nzType="flex">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>KdrNr</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.kundennummer" name="kundennummer" placeholder="kundennummer" [disabled]="true" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Telefon</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <nz-input-group nzCompact>-->
+<!--                <input type="text" nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.telefon" name="telefon" placeholder="1234567" nzSize="default"/>-->
+<!--              </nz-input-group>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>E-mail</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.email" name="email" placeholder="email" type="email" [disabled]="true" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div nz-row nzType="flex">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Position</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.email" name="email" placeholder="Position" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Abteilung</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.abteilung" name="abteilung" placeholder="Department" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Vertragsdauer</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.duration" name="duration" placeholder="Duration" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div nz-row nzType="flex">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Kundentyp</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.kundenType" name="kundenType" placeholder="Customer type" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="10" nzRequired>Vertragsdatum</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="14">-->
+<!--              <nz-date-picker [(ngModel)]="currentState.GeneralContactAddressComponent.startDate" name="startDate" (ngModelChange)="onChange($event)" nzSize="default"></nz-date-picker>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="10" nzRequired>Vertragsende</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="14">-->
+<!--              <nz-date-picker [(ngModel)]="currentState.GeneralContactAddressComponent.endDate" name="endDate" (ngModelChange)="onChange($event)" nzSize="default"></nz-date-picker>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+
+<!--      <div nz-row nzType="flex" >-->
+<!--        <div nz-col nzSpan="14">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="5" nzRequired>Adresse</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="19">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.address" name="address" placeholder="Street, house number" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="4">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>PLZ</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.plz" name="plz" placeholder="Post" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="6">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Ort</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.ort" name="ort" placeholder="Place" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div nz-row nzType="flex" >-->
+<!--        <div nz-col nzSpan="14">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="5" nzRequired>Adresse2</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="19">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.weitereAdresszeile" name="weitereAdresszeile" placeholder="Street, house number" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="5">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="12" nzRequired>Bundesland</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="12">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.bundesland" name="bundesland" placeholder="Bundesland" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="5">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Land </nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person"-->
+<!--                         [(ngModel)]="currentState.GeneralContactAddressComponent.land" name="land"-->
+<!--                         nzPlaceHolder="Select a Country"-->
+<!--                         nzSize="default">-->
+<!--                <nz-option *ngFor = "let country of countries"-->
+<!--                           nzLabel="{{country.name}}" nzValue="{{country.name}}" nzSize="default"></nz-option>-->
+<!--              </nz-select>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div nz-row nzType="flex" nzJustify="space-around" nzAlign="bottom">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="12" nzRequired>Mobil geschäftlich</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="12">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.mobilGeschaftlich" name="mobilGeschaftlich" placeholder="Mobil geschäftlich" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="7" nzRequired>Fax</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="17">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.fax" name="fax" placeholder="Fax" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>Web</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.web" name="web" placeholder="Web" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div nz-row nzType="flex" nzJustify="space-around" nzAlign="bottom">-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="9" nzRequired>Mobil privat</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="15">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.mobilPrivat" name="mobilPrivat" placeholder="Mobile private" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>Telefon2</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.telefon2" name="telefon2" placeholder="Telefon2" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--        <div nz-col nzSpan="8">-->
+<!--          <nz-form-item>-->
+<!--            <nz-form-label [nzSpan]="8" nzRequired>Email2</nz-form-label>-->
+<!--            <nz-form-control [nzSpan]="16">-->
+<!--              <input nz-input [(ngModel)]="currentState.GeneralContactAddressComponent.email2" name="email2" placeholder="Email2" type="email" nzSize="default"/>-->
+<!--            </nz-form-control>-->
+<!--          </nz-form-item>-->
+<!--        </div>-->
+<!--</div>-->

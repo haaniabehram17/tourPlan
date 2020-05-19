@@ -1,0 +1,102 @@
+<div class="antd-title">Basic Settings</div>
+<div nz-row class="antd-base-view-baseView">
+  <div nz-col nzSpan="12" class="antd-base-view-left">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col>
+              <nz-form-label nzfor="user">Contact Person</nz-form-label>
+            </div>
+            <div nz-col>
+              <input nz-input nzSize="default" formControlName="contactPerson" id="user" placeholder="lars Gebhardt" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col>
+              <nz-form-label nzfor="em">Email</nz-form-label>
+            </div>
+            <div nz-col>
+              <input nz-input nzSize="default" formControlName="email" id="em" placeholder="ptc-telematik@slack.de" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col>
+              <nz-form-label nzfor="ass">Address</nz-form-label>
+            </div>
+            <div nz-col>
+              <input nz-input nzSize="default" formControlName="address" id="ass" placeholder="Rheinstrasse 2a" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col>
+              <nz-form-label nzfor="phone">Phone Number</nz-form-label>
+            </div>
+            <div nz-col>
+              <input nz-input nzSize="default" formControlName="phoneNumber" id="phone" placeholder="123445" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col>
+              <nz-form-label nzfor="bnk">Bank Information</nz-form-label>
+            </div>
+            <div nz-col>
+              <input nz-input nzSize="default" formControlName="bankInformation" id="bnk" placeholder="Ibn" />
+            </div>
+            <div nz-col style="margin-top: 7px;">
+              <input nz-input nzSize="default" formControlName="bankInformation1" placeholder="bic" />
+            </div>
+            <div nz-col style="margin-top: 7px;">
+              <input nz-input nzSize="default" formControlName="bankInformation2" placeholder="other details" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzXs="11" nzSm="17" nzMd="20" nzLg="22" nzXl="20">
+          <div nz-row class="card-input-field-bottom">
+            <div nz-col style="margin-top: 10px">
+              <button type="submit" class="ant-btn ant-btn-primary">Update Information</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div nz-col nzSpan="12" class="antd-base-view-right">
+    <div class="antd-pages-avatar_title">Avatar</div>
+<!--    <div class="antd-view-avatar">-->
+<!--      <img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt="avatar">-->
+<!--    </div>-->
+    <div>
+      <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+    </div>
+    <span class="">
+            <div class="ant-upload ant-upload-select ant-upload-select-text">
+              <span tabindex="0" class="ant-upload" role="button">
+                  <button type="button" class="ant-btn">
+                    <span role="img" aria-label="upload" class="anticon anticon-upload"></span>Change avatar
+                  </button>
+              </span>
+            </div>
+          </span>
+  </div>
+</div>

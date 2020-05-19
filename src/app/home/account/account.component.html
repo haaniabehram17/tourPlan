@@ -1,0 +1,35 @@
+<nz-content>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>Einstellungen</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Accountdaten</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div class="main-content-container">
+    <div nz-row class="antd-pages-account-settings-style-main">
+      <div class="displayflex"></div>
+      <div nz-col nzMd="10" nzLg="8" nzXl="7" nzSm="24" nzXXl="5">
+        <!--      style="width: 280px"-->
+        <nz-sider nzWidth="200px" nzTheme="light" style="border-right: 1px solid #f0f0f0;">
+          <ul nz-menu nzMode="inline" class="sider-menu">
+            <li nz-menu-item nzSelected [routerLink]="'basicSetting'">
+              <i nz-icon nzType="setting" nzTheme="outline"></i>
+              <span> Basic Setting </span>
+            </li>
+
+            <li nz-menu-item [routerLink]="'securitySetting'">
+              <i nz-icon nzType="security-scan" nzTheme="outline"></i>
+              <span> Security Setting </span>
+            </li>
+
+            <li nz-menu-item [routerLink]="'notification'">
+              <i nz-icon nzType="notification"></i>
+              <span> New Message Notification </span>
+            </li>
+          </ul>
+        </nz-sider>
+      </div>
+      <div nz-col nzMd="14" nzLg="16" nzXl="17" nzSm="24" nzXXl="19" class="ant-design-style-right">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</nz-content>

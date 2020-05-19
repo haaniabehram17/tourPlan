@@ -1,0 +1,19 @@
+<div class="antd-title">Notification Center</div>
+<nz-list nzItemLayout="horizontal">
+  <nz-list-item *ngFor="let item of data">
+    <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="nzDescription">
+      <ng-template #nzTitle
+      >{{ item.title }}
+      </ng-template>
+      <ng-template #nzDescription
+      >{{ item.description }}
+      </ng-template>
+    </nz-list-item-meta>
+    <div nz-list-item-action>
+      <nz-switch [ngModel]="true" [nzCheckedChildren]="checkedTemplate" [nzUnCheckedChildren]="unCheckedTemplate"></nz-switch>
+      <ng-template #checkedTemplate><i nz-icon nzType="check"></i></ng-template>
+      <ng-template #unCheckedTemplate><i nz-icon nzType="close"></i></ng-template>
+    </div>
+  </nz-list-item>
+  <!--  <nz-list-empty *ngIf="data.length === 0"></nz-list-empty>-->
+</nz-list>

@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    # default labels
+    app.kubernetes.io/name: {{ .Values.app.name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/version: {{ .Chart.Version }}-{{ .Release.Revision }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Values.app.name }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        # default labels
+        app.kubernetes.io/name: {{ .Values.app.name }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/version: {{ .Chart.Version }}-{{ .Release.Revision }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+        helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    spec:
+      containers:
+        - name: {{ .Values.app.name }}
+          image: {{ .Values.deployment.image }}
+          imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.deployment.containerPort }}
+          env:
+            - name: API_URL
+              value: {{ .Values.deployment.apiUrl }}
+            - name: API_BASE_URL
+              value: {{ .Values.deployment.apiBaseUrl }}
+      imagePullSecrets:
+        - name: {{ .Values.deployment.imagePullSecret }}
