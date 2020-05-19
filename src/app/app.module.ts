@@ -14,6 +14,7 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
 
 registerLocaleData(de);
 
+
 @NgModule({
   declarations: [
     AppComponent
